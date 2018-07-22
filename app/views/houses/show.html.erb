@@ -1,0 +1,26 @@
+<h2>House</h2>
+  <p>Name: <%= @house.name %></p>
+  <p>Author: <%= @house.author %></p>
+  <p>Source: <%= @house.source %></p>
+  <p>Motto: <%= @house.motto %></p>
+
+<h3>Members</h3>
+  <ol>
+    <% if @members %>
+      <% @members.each do |m| %>
+        <li> <%= "#{m.first_name}  #{m.last_name} - Added At: #{m.created_at.strftime("%B %d %Y")}" %> </li>
+      <% end %>
+    <% end %>
+  </ol>
+
+<%= link_to "Add a House Member", new_house_member_path(@house) %>
+<!-- <h3>Add A Member</h3>
+<%= form_for [@house, @member] do |f| %>
+  <%= f.label :first_name, 'First Name' %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name, 'Last Name' %>
+  <%= f.text_field :last_name %>
+
+  <%= f.submit "Add Member" %>
+<% end %> -->
